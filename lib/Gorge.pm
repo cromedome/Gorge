@@ -30,20 +30,34 @@ get '/' => sub {
 };
 
 post "/quest" => sub {
-    my $swallow = body_parameters->get( 'swallow' );
-
     # Save these so we have them when we ask for JSON later
-    session name    => body_parameters->get( 'name' );
-    session quest   => body_parameters->get( 'quest' );
-    session swallow => $swallow;
+    my $name = body_parameters->get( 'name' );
+    session name  => $name;
+    session quest => body_parameters->get( 'quest' );
 
-    # Do we pass, or are we cast into the gorge?
-    if( $swallow eq "kind") {
-        template 'off-you-go';
+    my $a = database->quick_select(
+        'answers', { answer_id => body_parameters->get( 'answer' ) } );
+    session answer => $a->{ answer };
+
+    if( $a->{ is_correct } ) {
+        debug "Answer is correct";
+        database->quick_insert( 'crossers', { name => $name  } );
+
+        if( $a->{ casts_keeper } ) {
+            debug "Off he goes!";
+            template 'you-have-to-know-these-things';
+        } else {
+            debug "You may cross";
+            forward '/off-you-go', {}, { method => 'GET' };
+        }
+    } else {
+        debug "No other conditions matched";
+        forward '/into-the-gorge', {}, { method => 'GET' };
     }
-    else {
-        template 'cast-into-gorge';
-    }
+};
+
+get "/off-you-go" => sub {
+    template 'off-you-go';
 };
 
 get "/into-the-gorge" => sub {

@@ -12,8 +12,8 @@
         </select>
         <br>
 
-        <label for="question">[% gotcha.question %]</label>
-        <select name="answers" id="answers">
+        <label for="answer">[% gotcha.question %]</label>
+        <select name="answer" id="answer">
             [% FOREACH a IN answers %]
             <option value="[% a.answer_id %]">[% a.answer %]</option>
             [% END %]

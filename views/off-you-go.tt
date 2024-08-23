@@ -1,0 +1,4 @@
+<h1>Right, off you go!</h1>
+<div><img src="/images/right-off-you-go.png" alt=""></div>
+[% PROCESS actions.tt %]
+
