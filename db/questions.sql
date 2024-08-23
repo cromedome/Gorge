@@ -8,6 +8,8 @@ VALUES (1, 'What kind? African or European?', TRUE, TRUE );
 INSERT INTO questions( question )
 VALUES ( 'What is your favorite color?' );
 INSERT INTO answers( question_id, answer, is_correct, casts_keeper )
+VALUES (2, 'I don''t know...', FALSE, FALSE );
+INSERT INTO answers( question_id, answer, is_correct, casts_keeper )
 VALUES (2, 'Blue', TRUE, FALSE );
 INSERT INTO answers( question_id, answer, is_correct, casts_keeper )
 VALUES (2, 'Yellow', TRUE, FALSE );
