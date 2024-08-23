@@ -1,0 +1,7 @@
+<ol>
+    [% FOREACH crosser IN crossers %]
+    <li>[% crosser.name %] - [% crosser.date_crossed %]</li>
+    [% END %]
+</ol>
+[% PROCESS actions.tt %]
+

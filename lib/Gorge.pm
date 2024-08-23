@@ -70,4 +70,10 @@ get "/my-quest" => sub {
     }
     send_as JSON => \@response;
 };
+
+get '/crossers' => sub {
+    my @crossers = database->quick_select( 'crossers', { } );
+    template 'crossers', { crossers => \@crossers };
+};
+
 true;
