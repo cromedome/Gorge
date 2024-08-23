@@ -46,6 +46,10 @@ post "/quest" => sub {
     }
 };
 
+get "/into-the-gorge" => sub {
+    template 'cast-into-gorge';
+};
+
 get "/my-quest" => sub {
     my @response;
     foreach my $param ( qw( name quest swallow ) ) {
