@@ -19,8 +19,7 @@ get '/' => sub {
     $sth->execute;
     my $question = $sth->fetchrow_hashref;
     my @answers = database->quick_select(
-        'answers',
-        { question_id => $question->{ question_id } },
+        'answers', { question_id => $question->{ question_id } },
     );
 
     template 'index', {
