@@ -1,0 +1,21 @@
+DROP TABLE IF EXISTS crossers;
+DROP TABLE IF EXISTS question_answers;
+DROP TABLE IF EXISTS questions;
+
+CREATE TABLE IF NOT EXISTS questions (
+    question_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    question TEXT NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS answers (
+    answer_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    question_id INTEGER NOT NULL REFERENCES questions( question_id ),
+    answer TEXT NOT NULL,
+    is_correct BOOLEAN NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS crossers (
+    crosser_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT NOT NULL,
+    date_crossed DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
