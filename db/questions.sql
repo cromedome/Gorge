@@ -17,7 +17,7 @@ VALUES (2, 'Green', TRUE );
 INSERT INTO questions( question )
 VALUES ( 'What is the capital of Assyria?' );
 INSERT INTO answers( question_id, answer, is_correct )
-VALUES (3, 'Nineveh', TRUE );
-INSERT INTO answers( question_id, answer, is_correct )
 VALUES (3, 'I don''t know that!', FALSE );
+INSERT INTO answers( question_id, answer, is_correct )
+VALUES (3, 'Nineveh', TRUE );
 
