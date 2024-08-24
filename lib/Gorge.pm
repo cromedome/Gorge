@@ -1,7 +1,6 @@
 package Gorge;
 use Dancer2;
 use Dancer2::Plugin::Database;
-use Data::Printer;
 
 our $VERSION = '0.1';
 
