@@ -64,7 +64,7 @@ get "/into-the-gorge" => sub {
 
 get "/my-quest" => sub {
     my @response;
-    foreach my $param ( qw( name quest swallow ) ) {
+    foreach my $param ( qw( name quest answer ) ) {
         push @response, { $param => session->read( $param ) };
     }
     send_as JSON => \@response;
